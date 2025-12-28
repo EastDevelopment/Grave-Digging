@@ -206,9 +206,6 @@ RegisterNetEvent('GraveDigging:Client:DigGrave', function(_, data)
     data = data or {}
     local grave = data.grave
     local graveId = data.graveId
-
-    Notification:Info('Checking Grave...')
-
     Callbacks:ServerCallback('GraveDigging:Server:CanDigGrave', { graveId = graveId }, function(canDig, reason)
         print(string.format('[GraveDigging] CanDigGrave(%s) = %s (%s)', tostring(graveId), tostring(canDig), tostring(reason)))
         if not canDig then
